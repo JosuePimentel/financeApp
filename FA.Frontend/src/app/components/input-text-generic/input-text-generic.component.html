@@ -1,0 +1,8 @@
+<input
+  [type]="isPasswordInput && !showPassword ? 'password' : 'text'"
+  (input)="sendInput()"
+  [(ngModel)]="value"
+  [placeholder]="text"
+  class="w-full h-[30px] rounded-sm py-[6px] px-[10px] text-BACKGROUND placeholder:text-BACKGROUND placeholder:text-xs placeholder:font-semibold font-semibold text-xs"
+/>
+<i class="absolute right-0 top-0 py-[3px] px-[10px] z-10 text-base text-BACKGROUND cursor-pointer material-symbols-outlined" *ngIf="isPasswordInput" (click)="showPasswordFn()">{{ showPassword ? 'visibility' : 'visibility_off'}}</i>
