@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { LogoComponent } from '../../../components/logo/logo.component';
 import { InputTextGenericComponent } from '../../../components/input-text-generic/input-text-generic.component';
 import { ButtonGenericComponent } from '../../../components/button-generic/button-generic.component';
 import { Router } from '@angular/router';
+import { NavigatenModel } from '../../../module/model/navigate';
 
 @Component({
   selector: 'app-login',
@@ -18,5 +19,7 @@ import { Router } from '@angular/router';
   }
 })
 export class LoginComponent {
-  constructor(public readonly _router: Router) {}
+  navigate: NavigatenModel = new NavigatenModel(this._router, this.platformId);
+
+  constructor(private readonly _router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
 }
