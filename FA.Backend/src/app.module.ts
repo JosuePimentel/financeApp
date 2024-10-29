@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { BankModule } from './Module/TransactionAggregate/bank.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: true,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
     }),
+    BankModule,
   ],
   controllers: [],
   providers: [],
